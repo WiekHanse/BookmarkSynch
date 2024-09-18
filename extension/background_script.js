@@ -1,4 +1,5 @@
-const TIGERA_DEV_URL = 'https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/tigera_dev.json'
+const TIGERA_DEV_URL = 'http://localhost:8080/getBookmarksDev'
+
 browser.bookmarks.update(
     "--nhkV63O7Rp",
     {
@@ -12,4 +13,4 @@ fetch(TIGERA_DEV_URL)
     .then(data => console.log(data))
     .catch(err => console.log(err))
 
-//todo --> ID der Bookmarks + Speicherort und aenderungen per const einpflegen
+//todo --> ID der Bookmarks
