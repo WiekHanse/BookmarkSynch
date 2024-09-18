@@ -11,8 +11,11 @@
   },
 
   "permissions": [
-    "bookmarks",
-    "storage"
+    "bookmarks"
+  ],
+
+  "host_permissions": [
+    "*://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/tigera_dev.json*"
   ]
 
 }
