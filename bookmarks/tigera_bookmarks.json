@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Tigera Dev",
+    "url": "https://tigera.dev.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  },
+  {
+    "title": "Tigera Inf",
+    "url": "https://tigera.inf.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  },
+  {
+    "title": "Tigera Int",
+    "url": "https://tigera.int.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  },
+  {
+    "title": "Tigera Stg",
+    "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  },
+  {
+    "title": "henri Test",
+    "url": "https://tigera.henritest.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  }  
+]
+
