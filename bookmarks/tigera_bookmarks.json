@@ -14,6 +14,10 @@
   {
     "title": "Tigera Stg",
     "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
+  },
+  {
+    "title": "henri Test",
+    "url": "https://tigera.henritest.eks.aws.hanse-merkur.de/tigera-kibana/nArgo"
   }  
 ]
 
