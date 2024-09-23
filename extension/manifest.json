@@ -1,8 +1,17 @@
 {
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "henri.wiek@hansemerkur.de",
+      "update_url": "https://example.com/updates.json"
+    }
+  },
+
+
   "manifest_version": 3,
   "name": "BookmarkImport",
-  "version": "1.0",
+  "version": "1.1",
   "author": "NotMeHenri",
+  "id": "",
 
   "description": "Eine Extension die Bookmarks in Firefox synchronisieren soll.",
 
@@ -15,7 +24,6 @@
   ],
 
   "host_permissions": [
-    "*://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/tigera_dev.json*"
+    "https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/tigera_bookmarks.json"
   ]
-
 }

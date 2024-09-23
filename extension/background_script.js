@@ -18,6 +18,7 @@ async function loadBookmarksfromGit(vorhandeneBookmarks) {
                             "url": jsonResponse[jsonResponseKey].url
                         }
                     )
+                    console.log(jsonResponse[jsonResponseKey])
                 }
                 else {
                     browser.bookmarks.create(
@@ -27,6 +28,7 @@ async function loadBookmarksfromGit(vorhandeneBookmarks) {
                             "parentId": ORDNER_ID
                         }
                     )
+                    console.log(jsonResponse[jsonResponseKey])
                 }
             }
         })
