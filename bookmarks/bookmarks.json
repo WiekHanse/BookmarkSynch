@@ -1,19 +1,19 @@
 [
   {
     "title": "Tigera Dev",
-    "url": "https://tigera.dev.eks.aws.hanse-merkur.de/tigera-kibana/Argo"
+    "url": "https://tigera.dev.eks.aws.hanse-merkur.de/tigera-kibana/"
   },
   {
     "title": "Tigera Inf",
-    "url": "https://tigera.inf.eks.aws.hanse-merkur.de/tigera-kibana/Argo"
+    "url": "https://tigera.inf.eks.aws.hanse-merkur.de/tigera-kibana/"
   },
   {
     "title": "Tigera Int",
-    "url": "https://tigera.int.eks.aws.hanse-merkur.de/tigera-kibana/Argo"
+    "url": "https://tigera.int.eks.aws.hanse-merkur.de/tigera-kibana/"
   },
   {
     "title": "Tigera Stg",
-    "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/Argo"
+    "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/"
   }
 ]
 
