@@ -47,8 +47,8 @@ async function loadBookmarkOrdner() {
             console.log('Ordner ID:', ORDNER_ID);
             await loadBookmarksfromBrowser();
         } else {
-            console.log('Ordner nicht gefunden:', ORDNER_NAME);
-            console.log('Standartortner:',ORDNER_ID, ' wird verwendet!')
+            console.warn('Ordner nicht gefunden:', ORDNER_NAME);
+            console.warn('Standartortner:',ORDNER_ID, ' wird verwendet!')
             await loadBookmarksfromBrowser();
         }
     } catch (error) {
