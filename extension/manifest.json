@@ -4,24 +4,23 @@
       "id": "henri.wiek@hansemerkur.de"
     }
   },
-
-
   "manifest_version": 3,
   "name": "BookmarkImport",
   "version": "1.2.3",
   "author": "NotMeHenri",
-
   "description": "Eine Extension die Bookmarks in Firefox synchronisieren soll.",
-
   "background": {
     "scripts": ["background_script.js"]
   },
-
   "permissions": [
-    "bookmarks"
+    "bookmarks",
+    "tabs",
+    "activeTab"
   ],
-
   "host_permissions": [
-    "https://gitpro.hanse-merkur.de/WIEKH/bookmarks/*"
-  ]
+    "https://gitpro.hanse-merkur.de/*"
+  ],
+  "options_ui": {
+    "page": "options.html"
+  }
 }

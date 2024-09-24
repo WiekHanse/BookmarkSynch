@@ -1,58 +1,59 @@
-const URL = 'https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/bookmarks.json'
+const URL = localStorage.getItem('url');
 const FAST_UNENDLICH = 9999;
-ORDNER_ID = "toolbar_____"
-const ORDNER_NAME = "ITI-CS Bookmarks [synch]"
-
-
+let ORDNER_ID = "toolbar_____";
+const ORDNER_NAME = localStorage.getItem('ordnerTitel');
 
 async function loadBookmarksfromGit(vorhandeneBookmarks) {
-    await fetch(URL)
-        .then(response => response.json())
-        .then(jsonResponse => {
-            for (const jsonResponseKey in jsonResponse) {
-                if (vorhandeneBookmarks.find(e => e.title === jsonResponse[jsonResponseKey].title)) {
-                    let eintrag = vorhandeneBookmarks.find(e => e.title === jsonResponse[jsonResponseKey].title)
-                    browser.bookmarks.update(
-                        eintrag.id,
-                        {
-                            "title": jsonResponse[jsonResponseKey].title,
-                            "url": jsonResponse[jsonResponseKey].url
-                        }
-                    )
+    try {
+        const response = await fetch(URL);
+        const jsonResponse = await response.json();
 
-                }
-                else {
-                    browser.bookmarks.create(
-                        {
-                            "title": jsonResponse[jsonResponseKey].title,
-                            "url": jsonResponse[jsonResponseKey].url,
-                            "parentId": ORDNER_ID
-                        }
-                    )
-                }
+        for (const jsonResponseKey in jsonResponse) {
+            const bookmark = jsonResponse[jsonResponseKey];
+            const existingBookmark = vorhandeneBookmarks.find(e => e.title === bookmark.title);
+
+            if (existingBookmark) {
+                await browser.bookmarks.update(existingBookmark.id, {
+                    title: bookmark.title,
+                    url: bookmark.url
+                });
+            } else {
+                await browser.bookmarks.create({
+                    title: bookmark.title,
+                    url: bookmark.url,
+                    parentId: ORDNER_ID
+                });
             }
-        })
+        }
+    } catch (error) {
+        console.error('Fehler beim Laden der Bookmarks von Git:', error);
+    }
 }
 
-
 async function loadBookmarksfromBrowser() {
-    await browser.bookmarks.getRecent(FAST_UNENDLICH)
-        .then(response =>
-            {
-                loadBookmarksfromGit(response)
-            }
-        )
+    try {
+        const recentBookmarks = await browser.bookmarks.getRecent(FAST_UNENDLICH);
+        await loadBookmarksfromGit(recentBookmarks);
+    } catch (error) {
+        console.error('Fehler beim Laden der Bookmarks aus dem Browser:', error);
+    }
 }
 
 async function loadBookmarkOrdner() {
-    await browser.bookmarks.search({ title: ORDNER_NAME })
-        .then(response =>
-            {
-                ORDNER_ID = response[0].id
-                console.log(ORDNER_ID);
-                loadBookmarksfromBrowser()
-            }
-        )
+    try {
+        const response = await browser.bookmarks.search({ title: ORDNER_NAME });
+        if (response.length > 0) {
+            ORDNER_ID = response[0].id;
+            console.log('Ordner ID:', ORDNER_ID);
+            await loadBookmarksfromBrowser();
+        } else {
+            console.log('Ordner nicht gefunden:', ORDNER_NAME);
+            console.log('Standartortner:',ORDNER_ID, ' wird verwendet!')
+            await loadBookmarksfromBrowser();
+        }
+    } catch (error) {
+        console.error('Fehler beim Laden des Bookmark-Ordners:', error);
+    }
 }
 
-loadBookmarkOrdner()
+loadBookmarkOrdner();
