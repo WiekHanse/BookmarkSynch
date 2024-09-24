@@ -1,11 +1,11 @@
-const TIGERA_URL = 'https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/tigera_bookmarks.json'
+const URL = 'https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/bookmarks/bookmarks.json'
 const FAST_UNENDLICH = 9999;
-const ORDNER_ID = "KF_wbQcJve7P"
+const ORDNER_ID = "toolbar_____"
 
 
 
 async function loadBookmarksfromGit(vorhandeneBookmarks) {
-    await fetch(TIGERA_URL)
+    await fetch(URL)
         .then(response => response.json())
         .then(jsonResponse => {
             for (const jsonResponseKey in jsonResponse) {
