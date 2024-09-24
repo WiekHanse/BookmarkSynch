@@ -25,7 +25,7 @@ Dieses Firefox-Addon synchronisiert und erstellt Lesezeichen aus einem Git-Repos
 
 ## Fehlerbehebung
 
-- **Addon funktioniert nicht**: Stelle sicher, dass die eingegebene Repository-URL korrekt ist und dass das Repository öffentlich zugänglich ist oder du die notwendigen Berechtigungen hast.
+- **Addon funktioniert nicht**: Stelle sicher, dass die eingegebene Repository-URL korrekt ist oder du die notwendigen Berechtigungen hast.
 - **Lesezeichen werden nicht synchronisiert**: Überprüfe die Internetverbindung und stelle sicher, dass das Git-Repository erreichbar ist.
 
 ## Support
