@@ -1,0 +1,30 @@
+<!doctype html>
+<script>
+    function getInput()
+    {
+        console.log("test");
+        var inputVal = document.getElementById("url");
+        console.log(inputVal);
+    }
+</script>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Bookmark-Synchro-Optionen</title>
+</head>
+
+<body>
+<form id="bookmarkForm">
+    <label for="ordnertitle">Ordnertitel:</label>
+    <input type="text" id="ordnertitle" name="ordnertitle" />
+    <br>
+    <br>
+    <label for="url">URL:       </label>
+    <input type="text" id="url" name="url">
+    <br>
+    <br>
+    <button onclick="getInput()">Save</button>
+</form>
+</body>
+</html>
