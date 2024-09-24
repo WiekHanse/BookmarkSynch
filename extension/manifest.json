@@ -2,7 +2,6 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "henri.wiek@hansemerkur.de",
-      "update_url": "https://gitpro.hanse-merkur.de/WIEKH/bookmarks/-/raw/main/extension/update.json"
     }
   },
 
