@@ -14,7 +14,7 @@
   {
     "title": "Tigera Stg",
     "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/"
-  }
+  },
   {
     "title": "ArgoCD eks-inf",
     "url": "https://argocd.inf.eks.aws.hanse-merkur.de/applications/argocd/eks-inf-networkpolicies?view=tree&conditions=false&resource="
