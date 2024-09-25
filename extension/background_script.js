@@ -54,4 +54,10 @@ async function loadBookmarkOrdner() {
     }
 }
 
+chrome.commands.onCommand.addListener(function (command) {
+    if (command === "toggle-sidebar") {
+        chrome.sidebarAction.toggle();
+    }
+});
+
 loadBookmarkOrdner();

@@ -6,7 +6,7 @@
   },
   "manifest_version": 3,
   "name": "BookmarkImport",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "author": "NotMeHenri",
   "description": "Eine Extension die Bookmarks in Firefox synchronisieren soll.",
   "background": {
@@ -25,5 +25,22 @@
   },
   "icons": {
     "48": "bookmark.jpg"
+  },
+  "sidebar_action": {
+    "default_icon": {
+      "48": "bookmark.jpg"
+    },
+    "default_title": "Bookmarksynchro",
+    "default_panel": "options.html",
+    "open_at_install": false
+  },
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "MacCtrl+Shift+B"
+      },
+      "description": "Toggle the sidebar"
+    }
   }
 }
