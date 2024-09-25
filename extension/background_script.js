@@ -1,6 +1,6 @@
 const URL = localStorage.getItem('url');
 const FAST_UNENDLICH = 9999;
-let ORDNER_ID = "toolbar_____";
+let ORDNER_ID = "";
 const ORDNER_NAME = localStorage.getItem('ordnerTitel');
 
 async function loadBookmarksfromGit(vorhandeneBookmarks) {
@@ -48,8 +48,6 @@ async function loadBookmarkOrdner() {
             await loadBookmarksfromBrowser();
         } else {
             console.warn('Ordner nicht gefunden:', ORDNER_NAME);
-            console.warn('Standartortner:',ORDNER_ID, ' wird verwendet!')
-            await loadBookmarksfromBrowser();
         }
     } catch (error) {
         console.error('Fehler beim Laden des Bookmark-Ordners:', error);

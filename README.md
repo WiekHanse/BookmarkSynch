@@ -16,7 +16,7 @@ Dieses Firefox-Addon synchronisiert und erstellt Lesezeichen aus einem Git-Repos
     - Gehe zu `Add-ons` > `Erweiterungen`.
     - Finde das installierte Addon und klicke auf `Einstellungen`.
 2. **Repository-URL eingeben**: Gib die URL des Git-Repositories ein, aus dem die Lesezeichen synchronisiert werden sollen.
-3. **Zielordner-Titel festlegen**: Gib den Titel des Ordners ein, in dem die Lesezeichen gespeichert werden sollen. Falls der eingegebene Ordner nicht existiert, werden die Bookmarks an die `Toolbar` gepackt!
+3. **Zielordner-Titel festlegen**: Gib den Titel des Ordners ein, in dem die Lesezeichen gespeichert werden sollen. Falls der eingegebene Ordner nicht existiert, werden die Bookmarks **nicht geladen!**
 
 ## ⚠ Achtung ⚠
 

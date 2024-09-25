@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             messageDiv.style.display = 'none';
+            browser.runtime.reload();
         }, 3000);
 
     });
