@@ -1,23 +1,33 @@
 [
   {
+    "title": "Tigera Bookmarks",
+    "url": "",
+    "role": "folder"
+  },
+  {
     "title": "Tigera Dev",
-    "url": "https://tigera.dev.eks.aws.hanse-merkur.de/tigera-kibana/"
+    "url": "https://tigera.dev.eks.aws.hanse-merkur.de/tigera-kibana/",
+    "role": "bookmark"
   },
   {
     "title": "Tigera Inf",
-    "url": "https://tigera.inf.eks.aws.hanse-merkur.de/tigera-kibana/"
+    "url": "https://tigera.inf.eks.aws.hanse-merkur.de/tigera-kibana/",
+    "role": "bookmark"
   },
   {
     "title": "Tigera Int",
-    "url": "https://tigera.int.eks.aws.hanse-merkur.de/tigera-kibana/"
+    "url": "https://tigera.int.eks.aws.hanse-merkur.de/tigera-kibana/",
+    "role": "bookmark"
   },
   {
     "title": "Tigera Stg",
-    "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/"
+    "url": "https://tigera.stg.eks.aws.hanse-merkur.de/tigera-kibana/",
+    "role": "bookmark"
   },
   {
     "title": "ArgoCD eks-inf",
-    "url": "https://argocd.inf.eks.aws.hanse-merkur.de/applications/argocd/eks-inf-networkpolicies?view=tree&conditions=false&resource="
+    "url": "https://argocd.inf.eks.aws.hanse-merkur.de/applications/argocd/eks-inf-networkpolicies?view=tree&conditions=false&resource=",
+    "role": "bookmark"
   }
 ]
 
