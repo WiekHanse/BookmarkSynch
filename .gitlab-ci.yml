@@ -37,4 +37,4 @@ release:
     - main
   artifacts:
     paths:
-      - ./artifacts/*.zip
+      - ./artifacts/bookmarkSynch.zip
