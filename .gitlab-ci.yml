@@ -37,4 +37,4 @@ release:
     - main
   artifacts:
     paths:
-      - ./artifacts/*.xpi
+      - ./artifacts/*.zip
