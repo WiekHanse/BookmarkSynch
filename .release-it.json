@@ -1,0 +1,18 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}"
+  },
+  "gitlab": {
+    "release": true,
+    "tokenRef": "CI_JOB_TOKEN",
+    "tokenHeader": "Job-Token",
+    "skipChecks": true,
+    "assets": ["artifacts/*.xpi"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits"
+    },
+    "@release-it/bumper": {}
+  }
+}
