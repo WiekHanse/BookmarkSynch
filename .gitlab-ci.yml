@@ -27,7 +27,6 @@ release:
     - npm install --global web-ext
   script:
     - web-ext build --source-dir ./extension --artifacts-dir ./artifacts --filename bookmarkSynch.zip
-    - ls -la ./artifacts
     - release-it --npm.skipChecks --no-npm.publish --ci
   when: manual
   dependencies: [ ]
