@@ -26,7 +26,7 @@ release:
     - npm install --save-dev @release-it/conventional-changelog
     - npm install --global web-ext
   script:
-    - web-ext build --source-dir ./extension --artifacts-dir ./artifacts --filename bookmarkSynch.xpi
+    - web-ext build --source-dir ./extension --artifacts-dir ./artifacts --filename bookmarkSynch.zip
     - release-it --npm.skipChecks --no-npm.publish --ci
   when: manual
   dependencies: [ ]

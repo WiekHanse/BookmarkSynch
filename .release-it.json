@@ -7,7 +7,7 @@
     "tokenRef": "CI_JOB_TOKEN",
     "tokenHeader": "Job-Token",
     "skipChecks": true,
-    "assets": ["artifacts/*.xpi"]
+    "assets": ["artifacts/*.zip"]
   },
   "plugins": {
     "@release-it/conventional-changelog": {
