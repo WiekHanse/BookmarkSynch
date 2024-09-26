@@ -35,3 +35,6 @@ release:
     - schedules
   only:
     - main
+  artifacts:
+    paths:
+      - ./artifacts/*.xpi
