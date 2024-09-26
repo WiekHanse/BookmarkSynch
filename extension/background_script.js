@@ -4,58 +4,76 @@ let ORDNER_ID = "";
 const ORDNER_NAME = localStorage.getItem('ordnerTitel');
 const FOLDER_ROLE = "folder";
 const BOOKMARK_ROLE = "bookmark";
+const DEFAULT_FOLDER = "default";
+let UNTER_ORDNER_ID = "";
 
 async function synchBookmarks(vorhandeneBookmarks) {
     try {
         const response = await fetch(REPO_URL);
         const jsonResponse = await response.json();
 
-        for (const jsonResponseKey in jsonResponse) {
-            const bookmark = jsonResponse[jsonResponseKey];
+        for (const bookmark of jsonResponse) {
             const existingBookmark = vorhandeneBookmarks.find(e => e.title === bookmark.title);
+
             if (bookmark.role === FOLDER_ROLE) {
-                console.log(bookmark)
-                browser.bookmarks.search({title: bookmark.title}).then((results) => {
-                    if (results.length > 0) {
-                        const folder = results.find(item => !item.url);
-                        if (folder) {
-                            console.log(`Folder ID: ${folder.id}, ${folder.title}`);
-                        } else {
-                            browser.bookmarks.create(
-                                {
-                                    title: bookmark.title,
-                                    parentId: ORDNER_ID
-                                }
-                            )
-                            console.log("Test")
-                        }
-                    } else {
-                        browser.bookmarks.create(
-                            {
-                                title: bookmark.title,
-                                parentId: ORDNER_ID
-                            }
-                        )
-                        console.log("Test2")
-                    }
-                });
-            }
-            /*
-            if (true) {
-                if (existingBookmark) {
-                    await browser.bookmarks.update(existingBookmark.id, {
-                        title: bookmark.title,
-                        url: bookmark.url
-                    });
+                const result = await browser.bookmarks.search({ title: bookmark.title });
+                const folder = result.find(item => !item.url);
+
+                if (folder) {
+                    console.log("folder found");
                 } else {
                     await browser.bookmarks.create({
                         title: bookmark.title,
-                        url: bookmark.url,
                         parentId: ORDNER_ID
                     });
+                    console.log("folder created");
                 }
             }
-             */
+
+            if (bookmark.role === BOOKMARK_ROLE) {
+                const parentFolder = bookmark.parentFolder
+                console.log(parentFolder)
+                if (parentFolder === DEFAULT_FOLDER) {
+                    const result = await browser.bookmarks.search({ title: bookmark.title });
+                    const existing = result.find(item => item.url);
+
+                    if (existing) {
+                        await browser.bookmarks.update(existing.id, {
+                            title: bookmark.title,
+                            url: bookmark.url
+                        });
+                    } else {
+                        await browser.bookmarks.create({
+                            title: bookmark.title,
+                            url: bookmark.url,
+                            parentId: ORDNER_ID
+                        });
+                    }
+                } else {
+                    const result = await browser.bookmarks.search({ title: bookmark.title });
+                    const existing = result.find(item => item.url);
+
+                    const response = await browser.bookmarks.search({title: bookmark.parentFolder});
+                    if (response.length > 0) {
+                        UNTER_ORDNER_ID = response[0].id;
+                    } else {
+                        console.warn('Ordner nicht gefunden:', ORDNER_NAME);
+                    }
+
+                    if (existing) {
+                        await browser.bookmarks.update(existing.id, {
+                            title: bookmark.title,
+                            url: bookmark.url
+                        });
+                    } else {
+                        await browser.bookmarks.create({
+                            title: bookmark.title,
+                            url: bookmark.url,
+                            parentId: UNTER_ORDNER_ID
+                        });
+                    }
+                }
+            }
         }
     } catch (error) {
         console.error('Fehler beim Laden der Bookmarks von Git:', error);
@@ -76,7 +94,6 @@ async function loadBookmarkOrdner() {
         const response = await browser.bookmarks.search({title: ORDNER_NAME});
         if (response.length > 0) {
             ORDNER_ID = response[0].id;
-            console.log('Ordner ID:', ORDNER_ID);
             await loadBookmarksfromBrowser();
         } else {
             console.warn('Ordner nicht gefunden:', ORDNER_NAME);
@@ -91,31 +108,6 @@ chrome.commands.onCommand.addListener(function (command) {
         chrome.sidebarAction.toggle();
     }
 });
-
-function tryFolder() {
-    browser.bookmarks.create({
-        parentId: 'toolbar_____',
-        title: 'Folder Name'
-    }).then((newFolder) => {
-        console.log(`Added folder: ${newFolder}`);
-    });
-
-    browser.bookmarks.search({title: 'Folder Name'}).then((results) => {
-        if (results.length > 0) {
-            const folder = results.find(item => !item.url);
-            if (folder) {
-                console.log(`Folder ID: ${folder.id}, ${folder.title}`);
-            } else {
-                console.log('Folder not found.');
-            }
-        } else {
-            console.log('Folder not found.');
-        }
-    });
-}
-
-
-//tryFolder()
 
 loadBookmarkOrdner();
 
