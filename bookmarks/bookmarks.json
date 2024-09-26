@@ -33,7 +33,7 @@
     "title": "ArgoCD eks-inf",
     "url": "https://argocd.inf.eks.aws.hanse-merkur.de/applications/argocd/eks-inf-networkpolicies?view=tree&conditions=false&resource=",
     "role": "bookmark",
-    "parentFolder": "Tigera Bookmarks"
+    "parentFolder": "default"
   }
 ]
 
