@@ -6,7 +6,8 @@
     "release": true,
     "tokenRef": "CI_JOB_TOKEN",
     "tokenHeader": "Job-Token",
-    "skipChecks": true
+    "skipChecks": true,
+    "assets": ["*.xpi"]
   },
   "plugins": {
     "@release-it/conventional-changelog": {

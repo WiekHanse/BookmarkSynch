@@ -24,7 +24,9 @@ release:
     - npm install -g release-it
     - npm install --save-dev @release-it/bumper
     - npm install --save-dev @release-it/conventional-changelog
+    - npm install --global web-ext
   script:
+    - npm run build
     - release-it --npm.skipChecks --no-npm.publish --ci
   when: manual
   dependencies: []
