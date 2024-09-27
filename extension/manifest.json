@@ -13,9 +13,7 @@
     "scripts": ["background_script.js"]
   },
   "permissions": [
-    "bookmarks",
-    "tabs",
-    "activeTab"
+    "bookmarks"
   ],
   "host_permissions": [
     "https://github.com/WiekHanse/*"
