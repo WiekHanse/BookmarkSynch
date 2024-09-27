@@ -18,7 +18,7 @@
     "activeTab"
   ],
   "host_permissions": [
-    ""
+    "https://github.com/WiekHanse/*"
   ],
   "options_ui": {
     "page": "options.html"
